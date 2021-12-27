@@ -1,0 +1,77 @@
+echo"1About your OS and version,release number,kernel version \n 2 show all available shell \n 3 show mouse settings \n 4 show computer CPU information like processer type,speed etc\n 5 show memory information \n 6 show hard disk information like size of hard disk,cache memory,modeletc \n 7 file system(mounted)"
+
+echo "enter option"
+read op
+case $op in
+
+        1) echo "OS and version,release number,kernel version"
+            if [ -f /etc/os-release ]
+            then
+            echo "ch=1
+while[$ch -eq 1]
+do 
+echo "enter two values"
+read a b 
+echo "1-addition\n 2-subtracton\n 3-multiplication\n 4-division"
+echo "enter option"
+read op
+casse $op in
+	1)c= ` expr $a+$b `
+	echo "the sum of two numbers is $c"
+	;;
+	2)c= ` expr $a-$b `
+	echo "the difference of two numbers is $c"
+	;;
+	3)c= ` expr $a\*$b `
+	echo "the multiplication of two numbers is $c"
+	;;
+	1)c= ` expr $a/$b `
+	echo "the division of two numbers is $c"
+	;;
+	echo "enter a valid option 1-4"
+	;;
+esac
+echo "enter choice to repeat\n 1-yes\n another value-no"
+read ch 
+done
+OS:"   
+            cat    /etc/os-release
+            fi
+;;
+	2) echo "all available shells"
+	  if [ -f /etc/shells]
+	  then
+	  cat     /etc/shells
+	  fi
+;;
+	3) echo "mouse settings"
+	   xinput -list-prop "PixArt USB Optical Mouse"
+;;
+	4) echo "CPU information"
+	   if [ -f /proc/cpuinfo ]
+	   then
+	    cat    /proc/cpuinfo
+	    fi
+;;  	 
+	5) echo "memory information"
+	   if [ -f /proc/meminfo ]
+	   then
+	    cat    /proc/meminfo
+	    fi
+;;  
+	6) echo "hard disk information"
+	    if [ -f /proc/driver/rtc ]
+	     then
+	    echo "driver:"
+	     cat  /proc/driver/rtc
+	     fi
+;;
+	7) echo "file system"
+	   if [ -f /proc/mounts ]
+	    then
+	    cat  /proc/mounts
+	    fi
+;;
+	*) echo "enter valid option  only"
+	    ;;
+	esac
